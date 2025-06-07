@@ -1,0 +1,46 @@
+### GET /
+GET http://localhost:5003
+
+### register a new user
+POST http://localhost:5003/auth/register
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "password": "newpassword"
+}
+
+### login with the new user
+POST http://localhost:5003/auth/login
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "password": "newpassword"
+}
+
+### Fetch all todos (protected)
+GET http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5MjM3NTU3LCJleHAiOjE3NDkzMjM5NTd9.YjN5OFyXCPGTv81IeStVy4IO2e14wQH1k4FWb-gbnSw
+
+### Create a new todo (protected)
+POST http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5MjM3NTU3LCJleHAiOjE3NDkzMjM5NTd9.YjN5OFyXCPGTv81IeStVy4IO2e14wQH1k4FWb-gbnSw
+Content-Type: application/json
+
+{
+  "task": "New Todo"
+}
+
+### Update a todo (protected)
+PUT http://localhost:5003/todos/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5MjM3NTU3LCJleHAiOjE3NDkzMjM5NTd9.YjN5OFyXCPGTv81IeStVy4IO2e14wQH1k4FWb-gbnSw
+Content-Type: application/json
+
+{
+  "completed": 1
+}
+
+### Delete a todo (protected)
+DELETE http://localhost:5003/todos/1
+Authorization : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5MjM3NTU3LCJleHAiOjE3NDkzMjM5NTd9.YjN5OFyXCPGTv81IeStVy4IO2e14wQH1k4FWb-gbnSw
